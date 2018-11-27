@@ -1,0 +1,132 @@
+﻿@model GachaWebApp.Models.GachaModel
+
+@{
+    ViewData["Title"] = "PlayOnce";
+}
+
+<h2>ガチャ回数指定シミュレーション</h2>
+
+<h4>指定された回数ガチャを引き、排出結果を表示します</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="PlayOnce">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+
+                <div class="col-md-4">
+                    ガチャ試行回数
+                    <div class="text-warning">0を入力すると全種類をコンプするまで引きます</div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="tryCount" class="control-label"></label>
+                        <input asp-for="tryCount" class="form-control" />
+                        <span asp-validation-for="tryCount" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="rate1" class="control-label"></label>
+                        <input asp-for="rate1" class="form-control" />
+                        <span asp-validation-for="rate1" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="num1" class="control-label"></label>
+                        <input asp-for="num1" class="form-control" />
+                        <span asp-validation-for="num1" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="rate2" class="control-label"></label>
+                        <input asp-for="rate2" class="form-control" />
+                        <span asp-validation-for="rate2" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="num2" class="control-label"></label>
+                        <input asp-for="num2" class="form-control" />
+                        <span asp-validation-for="num2" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="rate3" class="control-label"></label>
+                        <input asp-for="rate3" class="form-control" />
+                        <span asp-validation-for="rate3" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="num3" class="control-label"></label>
+                        <input asp-for="num3" class="form-control" />
+                        <span asp-validation-for="num3" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="rate4" class="control-label"></label>
+                        <input asp-for="rate4" class="form-control" />
+                        <span asp-validation-for="rate4" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="num4" class="control-label"></label>
+                        <input asp-for="num4" class="form-control" />
+                        <span asp-validation-for="num4" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="rate5" class="control-label"></label>
+                        <input asp-for="rate5" class="form-control" />
+                        <span asp-validation-for="rate5" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="num5" class="control-label"></label>
+                        <input asp-for="num5" class="form-control" />
+                        <span asp-validation-for="num5" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input type="submit" value="実行" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to Top</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

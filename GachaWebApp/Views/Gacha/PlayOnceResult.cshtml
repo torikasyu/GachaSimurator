@@ -1,0 +1,116 @@
+﻿@model GachaWebApp.Models.GachaModel
+
+@{
+    ViewData["Title"] = "PlayOnceResult";
+}
+
+<h2>PlayOnceResult</h2>
+
+<div>
+    <h4>GachaModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            排出確率合計
+        </dt>
+        <dd>
+            @{ 
+                var sum = Model.rate1 + Model.rate2 + Model.rate3 + Model.rate4 + Model.rate5;
+            }
+            @sum
+            @if(sum != 1)
+            {
+            <span>合計が1ではないため不正確な結果となります</span>
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.rate1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rate1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rate2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rate2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.rate3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rate3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.rate4)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rate4)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.rate5)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.rate5)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.num1)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.num1)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.num2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.num2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.num3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.num3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.num4)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.num4)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.num5)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.num5)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.playCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.playCount)
+        </dd>
+        <dt>排出結果</dt>
+        <dd>
+            @foreach (var item in Model.result)
+            {
+                @if (item.Key.StartsWith("5"))
+                {
+                    <span class="text-danger" style="padding-right:5px;">レア度@(item.Key),@(item.Value)</span><br />
+                }
+                else if (item.Key.StartsWith("4"))
+                {
+                    <span class="text-info" style="padding-right:5px;">レア度@(item.Key),@(item.Value)</span><br />
+                }
+                else
+                {
+                    <span class="text-normal" style="padding-right:5px;">レア度@(item.Key),@(item.Value)</span><br />
+                }
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a href="#" onclick="window.history.back(); return false;">戻る</a> | 
+    <a asp-action="Index">Back to Top</a>
+</div>
